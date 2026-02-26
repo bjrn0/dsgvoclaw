@@ -15,7 +15,7 @@ const trustBadges = [
   },
   {
     icon: Users,
-    text: '500+ auf Warteliste',
+    text: '200+ Unternehmen',
   },
 ];
 
@@ -49,13 +49,13 @@ export function CTA() {
           {/* Main Heading */}
           
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#1c1917] mb-6">
-            Werden Sie DSGVO-Konform<br />
-            <span className="text-[#5a7a4a]">– Heute</span>
+            Starten Sie 2026 mit einem<br />
+            <span className="text-[#5a7a4a]">KI-Vorsprung</span>
           </h2>
 
           <p className="text-lg text-[#57534e] mb-10 max-w-xl mx-auto">
-            Treten Sie der Warteliste bei und erhalten Sie frühen Zugang zu DSGVOClaw. 
-            Seien Sie unter den ersten 1.000 Nutzern und erhalten Sie lebenslang 20% Rabatt.
+            Testen Sie 14 Tage kostenlos – voller Funktionsumfang, keine Kreditkarte nötig. 
+            Entscheiden Sie dann, ob der KI-Mitarbeiter Ihr Team verstärkt.
           </p>
 
           {/* Email Form */}
@@ -120,6 +120,18 @@ export function CTA() {
               </div>
             ))}
           </motion.div>
+
+          {/* Professional Urgency Note */}
+          <motion.p
+            className="text-sm text-[#78716c] mt-6"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            2026 wird das Jahr, in dem KI zum Standard wird. 
+            Die Frage ist nicht mehr „ob", sondern „wann".
+          </motion.p>
         </motion.div>
       </div>
     </section>

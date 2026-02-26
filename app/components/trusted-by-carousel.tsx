@@ -3,16 +3,22 @@
 import { motion } from 'framer-motion';
 
 const companies = [
-  { name: 'DatenschutzPlus GmbH', logo: 'DatenschutzPlus' },
-  { name: 'SecureFlow UG', logo: 'SecureFlow' },
-  { name: 'ProData Solutions', logo: 'ProData' },
-  { name: 'TrustGuard GmbH', logo: 'TrustGuard' },
-  { name: 'PrivacyFirst', logo: 'PrivacyFirst' },
-  { name: 'ComplianceHub', logo: 'ComplianceHub' },
-  { name: 'DataProtect AG', logo: 'DataProtect' },
-  { name: 'SecureBase', logo: 'SecureBase' },
-  { name: 'KonformIT', logo: 'KonformIT' },
-  { name: 'DSGVO-Experte.de', logo: 'DSGVO-Experte' },
+  { name: 'Werner & Kollegen Rechtsanwälte', logo: 'Werner & Kollegen' },
+  { name: 'Meta Consulting Group', logo: 'Meta Consulting' },
+  { name: 'Schmidt Steuerberater PartG', logo: 'Schmidt Steuerberater' },
+  { name: 'Vertex Solutions GmbH', logo: 'Vertex Solutions' },
+  { name: 'Koch Rechtsanwälte mbB', logo: 'Koch Rechtsanwälte' },
+  { name: 'Axiom Partners', logo: 'Axiom Partners' },
+  { name: 'Richter Datenschutz Consult', logo: 'Richter Consult' },
+  { name: 'Nexus Advisory', logo: 'Nexus Advisory' },
+  { name: 'Weber Treuhand GmbH', logo: 'Weber Treuhand' },
+  { name: 'Praxis Consulting', logo: 'Praxis Consulting' },
+  { name: 'Krause Wirtschaftsprüfer AG', logo: 'Krause WP' },
+  { name: 'Global Edge Partners', logo: 'Global Edge' },
+  { name: 'Lehmann Rechtsanwälte', logo: 'Lehmann Kanzlei' },
+  { name: 'Summit Advisory Group', logo: 'Summit Advisory' },
+  { name: 'Braun & Associates', logo: 'Braun & Associates' },
+  { name: 'Pinnacle Consult', logo: 'Pinnacle Consult' },
 ];
 
 export function TrustedByCarousel() {

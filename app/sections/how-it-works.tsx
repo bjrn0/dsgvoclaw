@@ -1,45 +1,65 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Download, Settings, MessageSquare, Sparkles, Check, ArrowRight } from 'lucide-react';
-import { IconCircle, ChecklistItem, FeatureTag } from '@/app/components/premium-components';
+import { Download, Settings, MessageSquare, Sparkles, ArrowRight, Check } from 'lucide-react';
+import { IconCircle, FeatureTag } from '@/app/components/premium-components';
 import { cn } from '@/lib/utils';
 
 const steps = [
   {
     number: '01',
     icon: Download,
-    title: 'Wählen Sie Ihre Option',
-    description: 'Entscheiden Sie sich zwischen Self-Hosted für volle Kontrolle oder unserem Managed-Service für maximalen Komfort.',
+    title: 'Wählen Sie Ihr Paket',
+    description: 'Wählen Sie aus drei leistungsstarken Optionen die passende für Ihr Unternehmen. Alle Pakete sind sofort einsatzbereit und DSGVO-konform auf deutschen Servern.',
     variant: 'sage' as const,
-    features: ['Self-Hosted', 'Managed Cloud', 'Hybrid'],
+    bullets: [
+      'Essential (€149/Monat): Ideal für Solo-Unternehmer und kleine Teams',
+      'Professional (€199/Monat): Voller Funktionsumfang für wachsende Unternehmen',
+      'Business (€399/Monat): Enterprise-Features mit dediziertem Support',
+    ],
+    features: ['Sofortige Aktivierung', 'Keine Einrichtungsgebühr', 'Jederzeit kündbar'],
     time: '< 5 Min.',
   },
   {
     number: '02',
     icon: Settings,
-    title: 'Einrichtung in Minuten',
-    description: 'Integrieren Sie DSGVOClaw nahtlos in Ihre bestehende Infrastruktur. Keine komplexe IT-Expertise erforderlich.',
+    title: 'Verbinden Sie Ihre Tools',
+    description: 'Integrieren Sie Ihren KI-Mitarbeiter nahtlos in Ihre bestehende Infrastruktur. In wenigen Klicks verbinden Sie E-Mail, Kalender und alle wichtigen Geschäftstools.',
     variant: 'terracotta' as const,
-    features: ['One-Click Setup', 'API-Integration', 'SSO'],
+    bullets: [
+      'E-Mail: Gmail, Outlook, Microsoft 365 – vollständig synchronisiert',
+      'Kalender: Google Calendar, Outlook Calendar, Calendly Integration',
+      'Kommunikation: Slack, Microsoft Teams, Zoom direkt verbunden',
+    ],
+    features: ['One-Click Setup', 'SSL-verschlüsselt', 'Sichere API-Verbindungen'],
     time: '< 10 Min.',
   },
   {
     number: '03',
     icon: MessageSquare,
-    title: 'Einfach chatten',
-    description: 'Stellen Sie Ihre DSGVO-Fragen auf natürliche Weise. Unsere KI versteht Kontext und gibt präzise, quellenbasierte Antworten.',
+    title: 'Geben Sie Anweisungen',
+    description: 'Kommunizieren Sie mit Ihrem KI-Mitarbeiter wie mit einem menschlichen Assistenten. Natürliche Sprache, kein technisches Know-how erforderlich.',
     variant: 'cream' as const,
-    features: ['Natürliche Sprache', 'Kontext-Verständnis', 'Quellenangaben'],
+    bullets: [
+      'Textbasierte Anweisungen: "Beantworte alle E-Mails zu Projekt Alpha"',
+      'Kontextverständnis: Erkennt Prioritäten und Dringlichkeiten automatisch',
+      'Lernfähig: Merkt sich Ihre Präferenzen und Arbeitsweisen',
+    ],
+    features: ['Deutsch & Englisch', 'Kontext-Verständnis', 'Spracherkennung'],
     time: 'Sofort',
   },
   {
     number: '04',
     icon: Sparkles,
-    title: 'Compliance läuft',
-    description: 'Lassen Sie sich automatisch an Fristen erinnern, generieren Sie Dokumente mit einem Klick und schlafen Sie besser.',
+    title: 'Ihr KI-Mitarbeiter arbeitet',
+    description: 'Ab sofort arbeitet Ihr KI-Mitarbeiter rund um die Uhr für Sie. Erledigt Routineaufgaben, hält Ihren Posteingang auf Null und erstellt Reports – während Sie sich auf das Wesentliche konzentrieren.',
     variant: 'sage' as const,
-    features: ['Auto-Erinnerungen', 'Dokument-Generierung', 'Reports'],
+    bullets: [
+      'Inbox Zero: Liest, kategorisiert und beantwortet E-Mails automatisch',
+      'Terminmanagement: Koordiniert Meetings, sendet Erinnerungen, bucht Reisen',
+      'Reporting: Erstellt tägliche, wöchentliche und monatliche Reports',
+    ],
+    features: ['24/7 Verfügbarkeit', 'Automatische Updates', 'DSGVO-Compliance'],
     time: '24/7',
   },
 ];
@@ -84,12 +104,12 @@ export function HowItWorks() {
           </div>
           
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#1c1917] mb-4">
-            In 4 Schritten zur<br />
-            <span className="text-[#7c9a8c]">automatisierten Compliance</span>
+            Ihr KI-Mitarbeiter in<br />
+            <span className="text-[#7c9a8c]">unter 10 Minuten einsatzbereit</span>
           </h2>
           
           <p className="text-lg text-[#57534e]">
-            So einfach kann DSGVO sein
+            Einfacher geht es nicht – drei Schritte zu Ihrem persönlichen KI-Assistenten
           </p>
         </motion.div>
 
@@ -104,13 +124,13 @@ export function HowItWorks() {
           {/* Connecting Line */}
           <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-[#e7e5e4] hidden sm:block" />
           
-          <div className="space-y-2">
+          <div className="relative">
             {steps.map((step, index) => (
               <motion.div
                 key={step.number}
                 variants={itemVariants}
                 className={cn(
-                  'relative flex flex-col sm:flex-row items-start gap-2 sm:gap-4',
+                  'relative flex flex-col sm:flex-row items-start mb-6 last:mb-0',
                   index % 2 === 1 && 'sm:flex-row-reverse'
                 )}
               >
@@ -124,10 +144,10 @@ export function HowItWorks() {
                 )}
                 >
                   <div className={cn(
-                    'bg-[#fdfcfb] rounded-xl p-4 sm:p-5 border border-[#e7e5e4] shadow-sm',
+                    'bg-[#fdfcfb] rounded-xl p-6 sm:p-8 border border-[#e7e5e4] shadow-sm',
                     index % 2 === 0 && 'sm:ml-auto'
                   )}
-                  style={{ maxWidth: '420px' }}
+                  style={{ maxWidth: '540px' }}
                   >
                     <div className={cn(
                       'flex items-start gap-4 mb-4',
@@ -142,11 +162,27 @@ export function HowItWorks() {
                     </div>
                     
                     <p className={cn(
-                      'text-[#57534e] leading-relaxed mb-4',
+                      'text-[#57534e] leading-relaxed mb-5',
                       index % 2 === 0 && 'sm:text-right'
                     )}>
                       {step.description}
                     </p>
+                    
+                    {/* Bullet Points */}
+                    <div className={cn(
+                      'mb-5 space-y-2',
+                      index % 2 === 0 && 'sm:text-right'
+                    )}>
+                      {step.bullets.map((bullet) => (
+                        <div key={bullet} className={cn(
+                          'flex items-start gap-2 text-sm text-[#57534e]',
+                          index % 2 === 0 && 'sm:flex-row-reverse sm:justify-end'
+                        )}>
+                          <Check className="w-4 h-4 text-[#5a7a4a] flex-shrink-0 mt-0.5" />
+                          <span>{bullet}</span>
+                        </div>
+                      ))}
+                    </div>
                     
                     <div className={cn(
                       'flex flex-wrap gap-2 mb-4',
@@ -161,7 +197,7 @@ export function HowItWorks() {
                       'flex items-center gap-2 text-sm text-[#78716c]',
                       index % 2 === 0 && 'sm:justify-end'
                     )}>
-                      <Clock className="w-4 h-4" />
+                      <ClockIcon className="w-4 h-4" />
                       <span>{step.time}</span>
                     </div>
                   </div>
@@ -196,7 +232,7 @@ export function HowItWorks() {
 }
 
 // Clock icon component
-function Clock({ className }: { className?: string }) {
+function ClockIcon({ className }: { className?: string }) {
   return (
     <svg 
       className={className}

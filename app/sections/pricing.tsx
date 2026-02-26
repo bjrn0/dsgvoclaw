@@ -6,59 +6,65 @@ import { IconCircle, FeatureTag } from '@/app/components/premium-components';
 
 const pricingPlans = [
   {
-    title: 'Self-Hosted',
+    title: 'Essential',
     icon: Shield,
-    price: '€499',
-    priceNote: 'Einmalig',
-    description: 'Für maximale Kontrolle und Datensouveränität',
+    price: '€149',
+    priceNote: '/Monat',
+    description: 'Perfekt für Solo-Unternehmer und kleine Teams',
     features: [
-      'Lifetime Lizenz',
-      'Alle Kern-Features',
-      'Unbegrenzte Benutzer',
-      'Community Support',
-      'Regelmäßige Updates',
-      'Vollständige Datensouveränität',
+      'Intelligente E-Mail Automation',
+      'Kalender Management & Terminkoordination',
+      'Tägliche Zusammenfassungen',
+      'Automatische DSGVO-Dokumentation',
+      'EU-Cloud Hosting (DE)',
+      'E-Mail Support',
+      '99.9% Uptime Garantie',
+      '1 Nutzer inklusive',
     ],
-    ctaText: 'Download',
+    ctaText: 'Kostenlos testen',
     variant: 'default' as const,
     color: 'sage',
   },
   {
-    title: 'Managed',
+    title: 'Professional',
     icon: Sparkles,
-    price: '€149',
+    price: '€199',
     priceNote: '/Monat',
-    description: 'Der beste Wert für wachsende Unternehmen',
+    description: 'Die Wahl für Unternehmen, die Wachstum beschleunigen wollen',
     features: [
-      'Alle Self-Hosted Features',
-      'Cloud-Hosting in Deutschland',
-      'Automatische Updates',
-      'Prioritäts-Support',
-      'SLA Garantie',
-      '99.9% Uptime',
-      'Erweiterte Analytics',
+      'Alle Essential Features',
+      'KI-gestützte Recherche & Analyse',
+      'Automatische Excel-Reports & Präsentationen',
+      'Erweiterte Workflow-Automation',
+      'Unbegrenzte E-Mail-Verarbeitung',
+      'Intelligentes Terminmanagement',
+      'Multi-User Unterstützung (bis 5 Nutzer)',
+      'Prioritäts-Support (< 2h Antwortzeit)',
+      'Voller API-Zugang',
+      'Erweiterte Analytics Dashboard',
     ],
     ctaText: 'Kostenlos testen',
     variant: 'highlighted' as const,
-    badge: 'Beliebt',
+    badge: 'Meistgewählt',
     color: 'terracotta',
   },
   {
-    title: 'Enterprise',
+    title: 'Business',
     icon: Building2,
-    price: 'Custom',
-    priceNote: '',
-    description: 'Maßgeschneidert für große Organisationen',
+    price: '€399',
+    priceNote: '/Monat',
+    description: 'Für etablierte Unternehmen mit höchsten Ansprüchen',
     features: [
-      'Alle Managed Features',
+      'Alle Professional Features',
       'Dedizierter Account Manager',
-      'Individuelle Integrationen',
-      'On-Premise Deployment',
-      'Schulung für Ihr Team',
-      'Custom SLA',
+      'Custom Integrationen',
+      'On-Premise Option',
+      'Team-Schulungen',
+      'Premium SLA',
       'White-Label Option',
+      'Compliance-Manager',
     ],
-    ctaText: 'Kontakt aufnehmen',
+    ctaText: 'Gespräch vereinbaren',
     variant: 'default' as const,
     color: 'cream',
   },
@@ -109,7 +115,11 @@ export function Pricing() {
           </h2>
           
           <p className="text-lg text-[#57534e]">
-            Wählen Sie das passende Modell für Ihr Unternehmen
+            Monatliche Subscription – jederzeit kündbar
+          </p>
+          
+          <p className="text-sm text-[#a66d4b] mt-4 font-medium">
+            Jahreszahlung: 2 Monate geschenkt (17% Rabatt)
           </p>
         </motion.div>
 

@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { AlertTriangle, Clock, Users, Puzzle, TrendingUp, Shield, AlertCircle } from 'lucide-react';
-import { IconCircle, FeatureTag, ProgressMini, StatCard } from '@/app/components/premium-components';
+import { AlertTriangle, Clock, Users, X, Check } from 'lucide-react';
+import { IconCircle } from '@/app/components/premium-components';
 
 interface ProblemItem {
   icon: typeof AlertTriangle;
@@ -12,61 +12,73 @@ interface ProblemItem {
   description: string;
   variant: 'rose' | 'amber';
   bgVariant: 'sage' | 'terracotta';
-  stat?: string;
-  statLabel?: string;
-  progress?: number;
-  progressLabel?: string;
-  features: string[];
+  cons: string[];
+  pros?: string[];
 }
 
 const problems: ProblemItem[] = [
   {
-    icon: AlertTriangle,
-    title: 'Bußgelder',
-    metric: '€20 Mio.',
-    subtitle: 'Max. Strafe',
-    description: 'DSGVO-Verstöße können existenzbedrohende Strafen nach sich ziehen.',
-    variant: 'rose',
-    bgVariant: 'sage',
-    stat: '+340%',
-    statLabel: 'Anstieg 2023',
-    features: ['Art. 83 DSGVO', '4% Umsatz', 'Schadensersatz'],
-  },
-  {
     icon: Clock,
     title: 'Zeitverlust',
     metric: '200+',
-    subtitle: 'Stunden pro Jahr',
-    description: 'Manuelle Compliance-Aufgaben verschlingen wertvolle Arbeitszeit.',
+    subtitle: 'Stunden/Monat',
+    description: 'Manuelle E-Mails, Kalender, Reports – Zeit, die für strategische Aufgaben fehlt.',
     variant: 'amber',
+    bgVariant: 'sage',
+    cons: [
+      '200+ Stunden pro Monat für Routineaufgaben',
+      '67% der Arbeitszeit ist reaktive Verwaltung',
+      'Wichtige strategische Projekte werden verschoben',
+      'Überstunden und Burnout-Risiko steigt',
+    ],
+    pros: [
+      'Mit KI: Inbox Zero in 10 Minuten statt 2 Stunden',
+      'Automatische Report-Erstellung über Nacht',
+      'Fokus auf wertschöpfende Aufgaben',
+    ],
+  },
+  {
+    icon: AlertTriangle,
+    title: 'DSGVO-Risiko',
+    metric: '€20 Mio.',
+    subtitle: 'Max. Bußgeld',
+    description: 'Ohne ordentliche Dokumentation drohen existenzbedrohende Strafen.',
+    variant: 'rose',
     bgVariant: 'terracotta',
-    progress: 67,
-    progressLabel: 'Routineaufgaben',
-    features: ['Dokumentation', 'Audits', 'Schulungen'],
+    cons: [
+      'Bußgelder bis zu €20 Mio. oder 4% des Umsatzes',
+      'Anstieg der Verstöße um 340% in 2023',
+      'Meldungsfrist von nur 72 Stunden bei Datenpannen',
+      'Schadensersatzforderungen von Kunden',
+      'Reputationsverlust und Imageschaden',
+    ],
+    pros: [
+      'Automatische Dokumentation aller Prozesse',
+      'Sofortige Warnung bei Risiken',
+      'Prüfungsbereit für jede Behörde',
+    ],
   },
   {
     icon: Users,
-    title: 'Fachkräftemangel',
+    title: 'Personalmangel',
     metric: '70%',
     subtitle: 'der KMUs',
-    description: 'Haben keinen eigenen Datenschutzbeauftragten.',
+    description: 'Haben keine Kapazität für zusätzliche administrative FTEs.',
     variant: 'amber',
     bgVariant: 'sage',
-    stat: '€80K',
-    statLabel: 'DSB Gehalt/Jahr',
-    features: ['Keine Expertise', 'Hohe Kosten', 'Schwer zu finden'],
-  },
-  {
-    icon: Puzzle,
-    title: 'Tool-Fragmentierung',
-    metric: '8+',
-    subtitle: 'Verschiedene Tools',
-    description: 'Durchschnittlich 8 Tools ohne echte Integration.',
-    variant: 'rose',
-    bgVariant: 'terracotta',
-    progress: 45,
-    progressLabel: 'Integration',
-    features: ['Datensilos', 'Manuelle Exporte', 'Inkonsistenz'],
+    cons: [
+      '70% der KMUs haben keinen Datenschutzbeauftragten',
+      '€80.000+ Kosten pro zusätzlichem FTE',
+      '6+ Monate bis zur vollen Einsatzfähigkeit',
+      'Hohe Fluktuation in administrativen Rollen',
+      'Schwierig: gute Assistenten zu finden',
+    ],
+    pros: [
+      'Ein KI-Mitarbeiter ersetzt 2–4 FTEs',
+      'Sofort einsatzbereit, keine Einarbeitung',
+      'Arbeitet 24/7 ohne Krankentage',
+      'Skalierbar ohne Neueinstellungen',
+    ],
   },
 ];
 
@@ -110,17 +122,17 @@ export function Problem() {
           </div>
           
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#1c1917] mb-4">
-            DSGVO-Compliance ist ein<br />
-            <span className="text-[#a66d4b]">Full-Time Job</span>
+            Manuelle Arbeit frisst Ihre<br />
+            <span className="text-[#a66d4b]">Wettbewerbsfähigkeit</span>
           </h2>
           
           <p className="text-lg text-[#57534e]">
-            Deutsche Unternehmen verlieren jährlich über 200 Stunden nur für manuelle DSGVO-Aufgaben
+            Während Ihre Konkurrenz bereits KI einsetzt, verlieren Sie Zeit mit Routineaufgaben
           </p>
         </motion.div>
       </div>
 
-      {/* Problem Grid with Full-Width Borders */}
+      {/* Problem Grid */}
       <motion.div
         className="border-t border-b border-[#e7e5e4]"
         variants={containerVariants}
@@ -129,12 +141,12 @@ export function Problem() {
         viewport={{ once: true }}
       >
         <div className="mx-auto max-w-7xl">
-          <div className="grid md:grid-cols-2 border-l border-r border-[#e7e5e4]">
-            {problems.slice(0, 2).map((problem, idx) => (
+          <div className="grid md:grid-cols-3 border-l border-r border-[#e7e5e4]">
+            {problems.map((problem, idx) => (
               <motion.div 
                 key={problem.title} 
                 variants={itemVariants}
-                className={`px-6 sm:px-8 py-10 sm:py-12 ${idx === 0 ? 'border-r border-[#e7e5e4]' : ''} ${problem.bgVariant === 'sage' ? 'bg-[#f4f7f2]/30' : 'bg-[#faf6f2]/30'}`}
+                className={`px-6 sm:px-8 py-10 sm:py-12 ${idx < 2 ? 'border-r border-[#e7e5e4]' : ''} ${problem.bgVariant === 'sage' ? 'bg-[#f4f7f2]/30' : 'bg-[#faf6f2]/30'}`}
               >
                 <div className="flex items-start justify-between mb-6">
                   <IconCircle icon={problem.icon} variant={problem.variant} size="lg" />
@@ -152,127 +164,42 @@ export function Problem() {
                   {problem.description}
                 </p>
                 
-                {/* Mini Components */}
-                <div className="space-y-4">
-                  {problem.stat && (
-                    <div className="flex items-center gap-3 p-3 rounded-lg bg-white border border-[#e7e5e4]">
-                      <TrendingUp className="w-4 h-4 text-[#a66d4b]" />
-                      <div className="flex-1">
-                        <div className="text-sm font-semibold text-[#1c1917]">{problem.stat}</div>
-                        <div className="text-xs text-[#78716c]">{problem.statLabel}</div>
+                {/* Cons - What you risk */}
+                <div className="mb-6">
+                  <p className="text-xs uppercase tracking-wider text-[#a66d4b] font-medium mb-3">
+                    Ohne KI-Mitarbeiter:
+                  </p>
+                  <div className="space-y-2">
+                    {problem.cons.map((con) => (
+                      <div key={con} className="flex items-start gap-2">
+                        <X className="w-4 h-4 text-[#dc2626] flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-[#57534e]">{con}</span>
                       </div>
-                    </div>
-                  )}
-                  
-                  {problem.progress !== undefined && problem.progress > 0 && (
-                    <ProgressMini 
-                      value={problem.progress} 
-                      label={problem.progressLabel}
-                      variant="terracotta"
-                    />
-                  )}
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {problem.features.map((feature) => (
-                      <FeatureTag key={feature} variant="cream">{feature}</FeatureTag>
                     ))}
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-          
-          <div className="grid md:grid-cols-2 border-l border-r border-[#e7e5e4] border-t border-[#e7e5e4]">
-            {problems.slice(2, 4).map((problem, idx) => (
-              <motion.div 
-                key={problem.title} 
-                variants={itemVariants}
-                className={`px-6 sm:px-8 py-10 sm:py-12 ${idx === 0 ? 'border-r border-[#e7e5e4]' : ''} ${problem.bgVariant === 'sage' ? 'bg-[#f4f7f2]/30' : 'bg-[#faf6f2]/30'}`}
-              >
-                <div className="flex items-start justify-between mb-6">
-                  <IconCircle icon={problem.icon} variant={problem.variant} size="lg" />
-                  <div className="text-right">
-                    <div className="text-3xl sm:text-4xl font-bold text-[#1c1917]">{problem.metric}</div>
-                    <div className="text-sm text-[#78716c]">{problem.subtitle}</div>
-                  </div>
-                </div>
-                
-                <h3 className="text-xl sm:text-2xl font-semibold text-[#1c1917] mb-3">
-                  {problem.title}
-                </h3>
-                
-                <p className="text-[#57534e] leading-relaxed mb-6">
-                  {problem.description}
-                </p>
-                
-                {/* Mini Components */}
-                <div className="space-y-4">
-                  {problem.stat && (
-                    <div className="flex items-center gap-3 p-3 rounded-lg bg-white border border-[#e7e5e4]">
-                      <Shield className="w-4 h-4 text-[#5a7a4a]" />
-                      <div className="flex-1">
-                        <div className="text-sm font-semibold text-[#1c1917]">{problem.stat}</div>
-                        <div className="text-xs text-[#78716c]">{problem.statLabel}</div>
-                      </div>
+
+                {/* Pros - What you gain */}
+                {problem.pros && (
+                  <div>
+                    <p className="text-xs uppercase tracking-wider text-[#5a7a4a] font-medium mb-3">
+                      Mit DSGVOClaw:
+                    </p>
+                    <div className="space-y-2">
+                      {problem.pros.map((pro) => (
+                        <div key={pro} className="flex items-start gap-2">
+                          <Check className="w-4 h-4 text-[#5a7a4a] flex-shrink-0 mt-0.5" />
+                          <span className="text-sm text-[#57534e]">{pro}</span>
+                        </div>
+                      ))}
                     </div>
-                  )}
-                  
-                  {problem.progress !== undefined && problem.progress > 0 && (
-                    <ProgressMini 
-                      value={problem.progress} 
-                      label={problem.progressLabel}
-                      variant="sage"
-                    />
-                  )}
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {problem.features.map((feature) => (
-                      <FeatureTag key={feature} variant="cream">{feature}</FeatureTag>
-                    ))}
                   </div>
-                </div>
+                )}
               </motion.div>
             ))}
           </div>
         </div>
       </motion.div>
-
-      {/* Bottom Stats */}
-      
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-12">
-        <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <StatCard 
-            value="€2.8Mrd" 
-            label="Bußgelder 2023" 
-            icon={AlertCircle}
-            variant="terracotta"
-          />
-          <StatCard 
-            value="47%" 
-            label="Nicht konform" 
-            icon={Shield}
-            variant="sage"
-          />
-          <StatCard 
-            value="3 Tage" 
-            label="Meldungsfrist" 
-            icon={Clock}
-            variant="cream"
-          />
-          <StatCard 
-            value="30.000€" 
-            label="Ø Kosten/Jahr" 
-            icon={TrendingUp}
-            variant="stone"
-          />
-        </motion.div>
-      </div>
     </section>
   );
 }

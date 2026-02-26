@@ -11,13 +11,13 @@ const interTight = Inter_Tight({
 });
 
 export const metadata: Metadata = {
-  title: "DSGVOClaw - DSGVO-Konformität, automatisiert",
-  description: "Der einzige KI-Assistent, der speziell für deutsche Datenschutzstandards entwickelt wurde.",
-  keywords: ["DSGVO", "GDPR", "Datenschutz", "KI", "Compliance", "Deutschland"],
+  title: "DSGVOClaw - Ihr KI-Mitarbeiter, 100% DSGVO-konform",
+  description: "Ersetzen Sie 2–4 administrative FTEs mit einem KI-Mitarbeiter. E-Mails, Kalender, Reports, Recherche – vollautomatisiert. EU-Server, kein US-Risiko, keine Bußgelder.",
+  keywords: ["KI-Mitarbeiter", "DSGVO", "Automatisierung", "E-Mail Automation", "Datenschutz", "Deutschland", "KI-Assistent"],
   authors: [{ name: "DSGVOClaw" }],
   openGraph: {
-    title: "DSGVOClaw - DSGVO-Konformität, automatisiert",
-    description: "Der einzige KI-Assistent für deutsche Datenschutzstandards.",
+    title: "DSGVOClaw - Ihr KI-Mitarbeiter, 100% DSGVO-konform",
+    description: "Ersetzen Sie 2–4 administrative FTEs mit einem KI-Mitarbeiter. EU-Server, kein US-Risiko.",
     type: "website",
     locale: "de_DE",
   },

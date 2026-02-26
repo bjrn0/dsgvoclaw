@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FileText, Shield, Server, Lock, Zap, Users, Clock, Check, ArrowRight, Database, Workflow } from 'lucide-react';
+import { FileText, Shield, Server, Lock, Zap, Users, Clock, Check, ArrowRight, Database, Workflow, Mail, Calendar, Search } from 'lucide-react';
 import { IconCircle, FeatureTag, ChecklistItem, StatCard } from '@/app/components/premium-components';
 
 export function FeaturesBento() {
@@ -40,14 +40,14 @@ export function FeaturesBento() {
           transition={{ duration: 0.6 }}
         >
           <div className="text-xs uppercase tracking-widest text-[#78716c] font-medium mb-4">
-            AI-Powered Compliance
+            KI-Automatisierung
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#1c1917] mb-4">
-            Alles, was Sie für<br />
-            <span className="text-[#7c9a8c]">DSGVO-Compliance</span> brauchen
+            Ein KI-Mitarbeiter für<br />
+            <span className="text-[#7c9a8c]">alle Ihre Aufgaben</span>
           </h2>
           <p className="text-lg text-[#57534e]">
-            Eine Plattform für alle Ihre Datenschutz-Anforderungen
+            E-Mails, Kalender, Reports, Recherche – vollautomatisch und DSGVO-sicher
           </p>
         </motion.div>
       </div>
@@ -62,159 +62,135 @@ export function FeaturesBento() {
       >
         <div className="mx-auto max-w-7xl">
           <div className="border-l border-r border-[#e7e5e4]">
-            {/* Row 1: Dokumentation & KI-Experte */}
+            {/* Row 1: E-Mail & Research */}
             <div className="grid md:grid-cols-2 divide-x divide-[#e7e5e4]">
-              {/* Dokumentation Feature */}
+              {/* E-Mail & Communication Feature */}
               <motion.div variants={itemVariants} className="px-6 sm:px-8 py-10 sm:py-12 bg-[#f4f7f2]/20">
                 <div className="flex items-start justify-between mb-6">
                   <div className="w-12 h-12 rounded-xl bg-[#e8ede3] border border-[#d4ddd0] flex items-center justify-center">
-                    <FileText className="w-6 h-6 text-[#5a7a4a]" />
+                    <Mail className="w-6 h-6 text-[#5a7a4a]" />
                   </div>
-                  <FeatureTag variant="sage">95% Zeitersparnis</FeatureTag>
+                  <FeatureTag variant="sage">Inbox Zero</FeatureTag>
                 </div>
                 
                 <h3 className="text-xl sm:text-2xl font-semibold text-[#1c1917] mb-3">
-                  Automatisierte Dokumentation
+                  E-Mail & Kommunikation
                 </h3>
                 
                 <p className="text-[#57534e] leading-relaxed mb-6">
-                  Erstellen Sie automatisch alle erforderlichen DSGVO-Dokumente – 
-                  von Verzeichnis der Verarbeitungstätigkeiten bis zur Datenschutz-Folgenabschätzung.
+                  Liest, kategorisiert und beantwortet E-Mails automatisch. 
+                  Priorisiert wichtige Nachrichten und erledigt Routine-Anfragen.
                 </p>
                 
                 <div className="space-y-4">
                   <div className="flex flex-wrap gap-2 mb-4">
-                    <FeatureTag icon={Database} variant="terracotta">Verzeichnis</FeatureTag>
-                    <FeatureTag icon={Shield} variant="cream">DSFA</FeatureTag>
-                    <FeatureTag icon={FileText} variant="sage">Dokumente</FeatureTag>
+                    <FeatureTag icon={Mail} variant="terracotta">Automatisch beantworten</FeatureTag>
+                    <FeatureTag icon={Calendar} variant="cream">Termine koordinieren</FeatureTag>
                   </div>
                   
                   <div className="space-y-3">
-                    <ChecklistItem checked>Automatische Verzeichnis-Erstellung</ChecklistItem>
-                    <ChecklistItem checked>DSFA mit Risiko-Bewertung</ChecklistItem>
-                    <ChecklistItem checked>Auftragsverarbeitungsverträge</ChecklistItem>
-                    <ChecklistItem checked>Einwilligungs-Verwaltung</ChecklistItem>
+                    <ChecklistItem checked>Inbox Zero jeden Tag</ChecklistItem>
+                    <ChecklistItem checked>Intelligente Priorisierung</ChecklistItem>
+                    <ChecklistItem checked>Follow-up Erinnerungen</ChecklistItem>
+                    <ChecklistItem checked>Mehrsprachig (DE/EN)</ChecklistItem>
                   </div>
                 </div>
               </motion.div>
 
-              {/* KI-Experte Feature */}
+              {/* Research & Reports Feature */}
               <motion.div variants={itemVariants} className="px-6 sm:px-8 py-10 sm:py-12 bg-[#faf6f2]/20">
                 <div className="flex items-start justify-between mb-6">
                   <div className="w-12 h-12 rounded-xl bg-[#f5ebe0] border border-[#e8d5c4] flex items-center justify-center">
-                    <Shield className="w-6 h-6 text-[#a66d4b]" />
+                    <Search className="w-6 h-6 text-[#a66d4b]" />
                   </div>
-                  <FeatureTag variant="terracotta">Made in Germany</FeatureTag>
+                  <FeatureTag variant="terracotta">Research</FeatureTag>
                 </div>
                 
                 <h3 className="text-xl sm:text-2xl font-semibold text-[#1c1917] mb-3">
-                  DSGVO-konforme KI
+                  Recherche & Analyse
                 </h3>
                 
                 <p className="text-[#57534e] leading-relaxed mb-6">
-                  Unsere KI wurde speziell für deutsches Datenschutzrecht trainiert 
-                  und gibt zuverlässige, quellenbasierte Antworten.
+                  Recherchiert Marktdaten, Wettbewerber und Trends. 
+                  Erstellt professionelle Reports und Präsentationen.
                 </p>
                 
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-3 mb-4">
                     <div className="p-3 rounded-lg bg-[#fdfcfb] border border-[#e7e5e4] text-center">
-                      <div className="text-2xl font-bold text-[#c17f59]">99.2%</div>
-                      <div className="text-xs text-[#78716c]">Genauigkeit</div>
+                      <div className="text-2xl font-bold text-[#c17f59]">10x</div>
+                      <div className="text-xs text-[#78716c]">schneller</div>
                     </div>
                     <div className="p-3 rounded-lg bg-[#fdfcfb] border border-[#e7e5e4] text-center">
-                      <div className="text-2xl font-bold text-[#c17f59]">{"<1s"}</div>
-                      <div className="text-xs text-[#78716c]">Antwortzeit</div>
+                      <div className="text-2xl font-bold text-[#c17f59]">99%</div>
+                      <div className="text-xs text-[#78716c]">Genauigkeit</div>
                     </div>
                   </div>
                   
                   <div className="flex flex-wrap gap-2">
-                    <FeatureTag variant="terracotta">Quellenbasiert</FeatureTag>
-                    <FeatureTag variant="cream">Aktuelle Gesetze</FeatureTag>
-                    <FeatureTag variant="sage">Deutschsprachig</FeatureTag>
+                    <FeatureTag variant="terracotta">Marktrecherche</FeatureTag>
+                    <FeatureTag variant="cream">Excel-Reports</FeatureTag>
+                    <FeatureTag variant="sage">Präsentationen</FeatureTag>
                   </div>
                 </div>
               </motion.div>
             </div>
 
-            {/* Row 2: Hosting & Workflows */}
+            {/* Row 2: Admin & GDPR Compliance */}
             <div className="grid md:grid-cols-2 divide-x divide-[#e7e5e4] border-t border-[#e7e5e4]">
-              {/* Self-Hosted Feature */}
+              {/* Calendar & Admin Feature */}
               <motion.div variants={itemVariants} className="px-6 sm:px-8 py-10 sm:py-12 bg-[#fdf6e9]/20">
                 <div className="flex items-start justify-between mb-6">
                   <div className="w-12 h-12 rounded-xl bg-[#f5efe6] border border-[#e8ddd0] flex items-center justify-center">
-                    <Server className="w-6 h-6 text-[#78716c]" />
+                    <Calendar className="w-6 h-6 text-[#78716c]" />
                   </div>
-                  <FeatureTag variant="cream">100% Kontrolle</FeatureTag>
+                  <FeatureTag variant="cream">Administration</FeatureTag>
                 </div>
                 
                 <h3 className="text-xl sm:text-2xl font-semibold text-[#1c1917] mb-3">
-                  Self-Hosted oder Managed
+                  Kalender & Terminmanagement
                 </h3>
                 
                 <p className="text-[#57534e] leading-relaxed mb-6">
-                  Wählen Sie zwischen eigener Infrastruktur oder unserem Managed-Service 
-                  – volle Kontrolle bei maximaler Flexibilität.
-                </p>
-                
-                <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="p-4 rounded-lg bg-[#fdfcfb] border border-[#e7e5e4]">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Server className="w-4 h-4 text-[#d4a574]" />
-                        <span className="text-sm font-semibold text-[#1c1917]">Self-Hosted</span>
-                      </div>
-                      <div className="text-xs text-[#78716c]">Auf Ihren Servern</div>
-                      <div className="text-lg font-bold text-[#1c1917] mt-1">€499</div>
-                      <div className="text-xs text-[#a8a29e]">einmalig</div>
-                    </div>
-                    
-                    <div className="p-4 rounded-lg bg-[#fdfcfb] border border-[#e7e5e4]">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Cloud className="w-4 h-4 text-[#7c9a8c]" />
-                        <span className="text-sm font-semibold text-[#1c1917]">Managed</span>
-                      </div>
-                      <div className="text-xs text-[#78716c]">Wir hosten für Sie</div>
-                      <div className="text-lg font-bold text-[#1c1917] mt-1">€149</div>
-                      <div className="text-xs text-[#a8a29e]">/Monat</div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Workflow Automation */}
-              <motion.div variants={itemVariants} className="px-6 sm:px-8 py-10 sm:py-12 bg-[#f4f7f2]/20">
-                <div className="flex items-start justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-[#e8ede3] border border-[#d4ddd0] flex items-center justify-center">
-                    <Workflow className="w-6 h-6 text-[#5a7a4a]" />
-                  </div>
-                  <FeatureTag variant="sage">Automatisierung</FeatureTag>
-                </div>
-                
-                <h3 className="text-xl sm:text-2xl font-semibold text-[#1c1917] mb-3">
-                  Workflow-Automatisierung
-                </h3>
-                
-                <p className="text-[#57534e] leading-relaxed mb-6">
-                  Automatisieren Sie wiederkehrende Compliance-Aufgaben 
-                  und sparen Sie wertvolle Arbeitszeit.
+                  Verwaltet Ihren Kalender, koordiniert Termine mit externen Partnern 
+                  und bereitet Meetings vor.
                 </p>
                 
                 <div className="space-y-4">
                   <div className="space-y-3">
-                    <ChecklistItem checked>Automatische Erinnerungen</ChecklistItem>
-                    <ChecklistItem checked>Workflow-Templates</ChecklistItem>
-                    <ChecklistItem checked>Integrationen (Slack, Teams)</ChecklistItem>
-                    <ChecklistItem checked>Berichts-Automatisierung</ChecklistItem>
+                    <ChecklistItem checked>Automatische Terminkoordination</ChecklistItem>
+                    <ChecklistItem checked>Meeting-Vorbereitung</ChecklistItem>
+                    <ChecklistItem checked>Reiseplanung & Check-in</ChecklistItem>
+                    <ChecklistItem checked>Erinnerungen & Follow-ups</ChecklistItem>
                   </div>
-                  
-                  <a 
-                    href="#workflows" 
-                    className="inline-flex items-center gap-2 text-sm font-medium text-[#7c9a8c] hover:text-[#6b8a7a] transition-colors"
-                  >
-                    Alle Workflows ansehen
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
+                </div>
+              </motion.div>
+
+              {/* GDPR Compliance Feature */}
+              <motion.div variants={itemVariants} className="px-6 sm:px-8 py-10 sm:py-12 bg-[#f4f7f2]/20">
+                <div className="flex items-start justify-between mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-[#e8ede3] border border-[#d4ddd0] flex items-center justify-center">
+                    <Shield className="w-6 h-6 text-[#5a7a4a]" />
+                  </div>
+                  <FeatureTag variant="sage">DSGVO</FeatureTag>
+                </div>
+                
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#1c1917] mb-3">
+                  Automatische Compliance
+                </h3>
+                
+                <p className="text-[#57534e] leading-relaxed mb-6">
+                  Automatische DSGVO-Dokumentation, Audit-Logs und Compliance-Überwachung 
+                  – ohne Ihr Zutun.
+                </p>
+                
+                <div className="space-y-4">
+                  <div className="space-y-3">
+                    <ChecklistItem checked>Verzeichnis der Verarbeitungstätigkeiten</ChecklistItem>
+                    <ChecklistItem checked>DSFA automatisch generiert</ChecklistItem>
+                    <ChecklistItem checked>Vollständiges Audit-Log</ChecklistItem>
+                    <ChecklistItem checked>Rechtskonforme Dokumente</ChecklistItem>
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -222,74 +198,86 @@ export function FeaturesBento() {
         </div>
       </motion.div>
 
-      {/* Feature Stats - With Context */}
-      
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-16">
+      {/* Tool Integrations */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-20">
         <motion.div
-          className="text-center mb-8"
+          className="text-center mb-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-sm text-[#78716c]">
-            Vertrauen Sie auf bewährte Leistung und deutsche Qualität
+          <div className="text-xs uppercase tracking-widest text-[#78716c] font-medium mb-3">
+            Integrationen
+          </div>
+          <h3 className="text-2xl sm:text-3xl font-semibold text-[#1c1917] mb-3">
+            Verbindung mit Ihren Tools
+          </h3>
+          <p className="text-[#57534e] max-w-2xl mx-auto">
+            Nahtlose Integration in Ihre bestehende Infrastruktur. Der KI-Mitarbeiter arbeitet direkt mit den Tools, die Sie täglich nutzen.
           </p>
         </motion.div>
         
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-4"
+          className="bg-[#f4f7f2] rounded-2xl p-8 sm:p-12 border border-[#e7e5e4]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <StatCard 
-            value="24/7" 
-            label="Rund-um-die-Uhr Verfügbarkeit" 
-            icon={Clock}
-            variant="sage"
-          />
-          <StatCard 
-            value="200+" 
-            label="Dokumente pro Tag generiert" 
-            icon={FileText}
-            variant="terracotta"
-          />
-          <StatCard 
-            value="100%" 
-            label="DSGVO-Konformität garantiert" 
-            icon={Shield}
-            variant="cream"
-          />
-          <StatCard 
-            value="DE" 
-            label="Server-Standort Deutschland" 
-            icon={Server}
-            variant="stone"
-          />
+          {/* Communication Tools */}
+          <div className="mb-10">
+            <p className="text-xs uppercase tracking-wider text-[#78716c] font-medium mb-4">Kommunikation</p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-6">
+              <ToolLogo name="Microsoft Outlook" icon="📧" />
+              <ToolLogo name="Gmail" icon="📧" />
+              <ToolLogo name="Microsoft Teams" icon="💬" />
+              <ToolLogo name="Slack" icon="💬" />
+              <ToolLogo name="Zoom" icon="📹" />
+              <ToolLogo name="Google Meet" icon="📹" />
+            </div>
+          </div>
+          
+          {/* Office & Productivity */}
+          <div className="mb-10">
+            <p className="text-xs uppercase tracking-wider text-[#78716c] font-medium mb-4">Office & Produktivität</p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-6">
+              <ToolLogo name="Microsoft Excel" icon="📊" />
+              <ToolLogo name="Microsoft Word" icon="📝" />
+              <ToolLogo name="PowerPoint" icon="📊" />
+              <ToolLogo name="Google Sheets" icon="📊" />
+              <ToolLogo name="Google Docs" icon="📝" />
+              <ToolLogo name="Notion" icon="📋" />
+            </div>
+          </div>
+          
+          {/* Calendar & CRM */}
+          <div>
+            <p className="text-xs uppercase tracking-wider text-[#78716c] font-medium mb-4">Kalender & CRM</p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-6">
+              <ToolLogo name="Google Calendar" icon="📅" />
+              <ToolLogo name="Outlook Calendar" icon="📅" />
+              <ToolLogo name="Calendly" icon="📅" />
+              <ToolLogo name="Salesforce" icon="💼" />
+              <ToolLogo name="HubSpot" icon="💼" />
+              <ToolLogo name="Pipedrive" icon="💼" />
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
   );
 }
 
-// Cloud icon component for the hosting section
-function Cloud({ className }: { className?: string }) {
+// Tool Logo Component
+function ToolLogo({ name, icon }: { name: string; icon: string }) {
   return (
-    <svg 
-      className={className} 
-      width="16" 
-      height="16" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="2" 
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-    >
-      <path d="M17.5 19c0-3.037-2.463-5.5-5.5-5.5S6.5 15.963 6.5 19" />
-      <path d="M17.5 19c2.485 0 4.5-2.015 4.5-4.5S19.985 10 17.5 10c-.186 0-.367.012-.544.035C16.473 6.607 13.487 4 10 4 6.134 4 3 7.134 3 11c0 .37.024.733.07 1.087A4.501 4.501 0 0 0 6.5 19" />
-    </svg>
+    <div className="flex flex-col items-center gap-2 group">
+      <div className="w-14 h-14 rounded-xl bg-white border border-[#e7e5e4] flex items-center justify-center text-2xl shadow-sm group-hover:shadow-md group-hover:border-[#5a7a4a] transition-all duration-200">
+        {icon}
+      </div>
+      <span className="text-xs text-[#57534e] text-center leading-tight">{name}</span>
+    </div>
   );
 }
+

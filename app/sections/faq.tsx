@@ -12,34 +12,34 @@ import { IconCircle } from '@/app/components/premium-components';
 
 const faqs = [
   {
-    question: 'Ist DSGVOClaw wirklich DSGVO-konform?',
+    question: 'Was kann der KI-Mitarbeiter konkret tun?',
     answer:
-      'Ja, DSGVOClaw wurde speziell nach deutschen Datenschutzstandards entwickelt. Wir hosten ausschließlich in Deutschland und der EU, und bei der Self-Hosted-Option haben Sie die volle Kontrolle über Ihre Daten. Unser System erfüllt alle Anforderungen der DSGVO und wird regelmäßig von externen Datenschutzexperten geprüft.',
+      'Ihr KI-Mitarbeiter übernimmt alle administrativen Routineaufgaben: E-Mails lesen und beantworten, Kalender verwalten und Termine koordinieren, Recherchen durchführen, Reports und Präsentationen erstellen, sowie DSGVO-Dokumentation automatisch pflegen. Er arbeitet 24/7 und lernt Ihre Präferenzen kennen.',
   },
   {
-    question: 'Was ist der Unterschied zwischen Self-Hosted und Managed?',
+    question: 'Ist meine Daten wirklich sicher?',
     answer:
-      'Bei Self-Hosted installieren Sie DSGVOClaw auf Ihren eigenen Servern. Sie haben volle Datensouveränität, zahlen einmalig und besitzen eine Lifetime-Lizenz. Bei Managed hosten wir die Anwendung für Sie in deutschen Rechenzentren. Sie profitieren von automatischen Updates, 99.9% Uptime-Garantie und Prioritäts-Support.',
+      'Absolut. Bei Starter (Self-Hosted) verlassen Ihre Daten niemals Ihre Server. Bei Professional hosten wir ausschließlich in deutschen Rechenzentren (Hetzner, AWS Frankfurt). Keine Datenweitergabe in die USA, keine Nutzung für KI-Training, vollständiges Audit-Log. Wir erfüllen alle DSGVO-Anforderungen und bieten fertige Verarbeitungsverzeichnisse.',
+  },
+  {
+    question: 'Wie unterscheidet sich das von ChatGPT oder anderen KI-Tools?',
+    answer:
+      'ChatGPT und US-basierte Tools übertragen Ihre Daten in unsichere Drittländer (USA) – ein massives DSGVO-Risiko. Unser KI-Mitarbeiter läuft ausschließlich auf EU-Servern, ist speziell für deutsche Geschäftsprozesse trainiert und integriert sich nahtlos in Ihre bestehenden Tools (E-Mail, Kalender, Slack, etc.).',
   },
   {
     question: 'Wie lange dauert die Einrichtung?',
     answer:
-      'Die Einrichtung von DSGVOClaw dauert weniger als 10 Minuten. Bei Self-Hosted folgen Sie einfach unserer Schritt-für-Schritt-Anleitung. Bei Managed richten wir Ihre Instanz innerhalb von 24 Stunden ein. Unser Onboarding-Assistent führt Sie durch den gesamten Prozess.',
+      'Die Einrichtung dauert weniger als 10 Minuten. Sie verbinden einfach Ihre E-Mail und Kalender, definieren Ihre Präferenzen – und der KI-Mitarbeiter beginnt sofort zu arbeiten. Keine IT-Kenntnisse nötig, unser Onboarding-Assistent führt Sie Schritt für Schritt.',
   },
   {
-    question: 'Kann ich DSGVOClaw mit meinen Tools verbinden?',
+    question: 'Kann ich zwischen Self-Hosted und Cloud wechseln?',
     answer:
-      'Ja, DSGVOClaw bietet eine umfangreiche API und native Integrationen für gängige Tools wie CRM-Systeme, Marketing-Plattformen und Cloud-Speicher. Bei Enterprise erhalten Sie sogar maßgeschneiderte Integrationen für Ihre spezifischen Anforderungen.',
+      'Ja, jederzeit. Sie können mit Starter (Self-Hosted) beginnen und später auf Professional (Cloud) umsteigen – oder umgekehrt. Ihre Daten und Einstellungen können migriert werden. Sie haben immer die volle Flexibilität.',
   },
   {
     question: 'Gibt es eine Geld-zurück-Garantie?',
     answer:
-      'Absolut. Wir bieten eine 14-tägige Geld-zurück-Garantie für alle Pläne. Wenn Sie mit DSGVOClaw nicht zufrieden sind, erhalten Sie Ihr Geld zurück - ohne Fragen. Bei Self-Hosted gilt dies innerhalb von 14 Tagen nach Kauf, bei Managed innerhalb der ersten 14 Tage nach Aktivierung.',
-  },
-  {
-    question: 'Werden meine Daten für KI-Training verwendet?',
-    answer:
-      'Nein, niemals. Ihre Daten gehören Ihnen und werden niemals für KI-Training oder andere Zwecke verwendet. Bei Self-Hosted verlassen Ihre Daten niemals Ihre Server. Bei Managed werden alle Daten ausschließlich in Deutschland gespeichert und verarbeitet. Wir nehmen Datenschutz ernst - das ist unser Versprechen.',
+      'Ja, wir bieten 14 Tage Geld-zurück-Garantie. Testen Sie den KI-Mitarbeiter risikofrei. Wenn Sie nicht überzeugt sind, erhalten Sie eine volle Rückerstattung – ohne Fragen.',
   },
 ];
 

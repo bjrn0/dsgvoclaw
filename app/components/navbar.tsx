@@ -55,20 +55,18 @@ export function Navbar() {
             <div className="w-8 h-8 rounded-lg bg-[#5a7a4a] flex items-center justify-center">
               <Shield className="w-5 h-5 text-white" />
             </div>
-            <span className={`font-semibold text-slate-900 tracking-tight transition-all duration-300 ${
-              isScrolled ? 'text-base' : 'text-lg'
-            }`}>DSGVOClaw</span>
+            <span className="font-semibold text-slate-900 tracking-tight text-lg">DSGVOClaw</span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-6">
+          <div className={`hidden lg:flex items-center transition-all duration-300 ${
+            isScrolled ? 'gap-4' : 'gap-6'
+          }`}>
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className={`font-medium text-slate-600 hover:text-slate-900 transition-all duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[#5a7a4a] after:transition-all after:duration-200 hover:after:w-full ${
-                  isScrolled ? 'text-xs' : 'text-sm'
-                }`}
+                className="font-medium text-slate-600 hover:text-slate-900 transition-all duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[#5a7a4a] after:transition-all after:duration-200 hover:after:w-full text-sm"
               >
                 {link.label}
               </a>
@@ -76,24 +74,22 @@ export function Navbar() {
           </div>
 
           {/* Right side - Desktop */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className={`hidden md:flex items-center transition-all duration-300 ${
+            isScrolled ? 'gap-2' : 'gap-3'
+          }`}>
             <a
               href="/signin"
-              className={`font-medium text-slate-600 hover:text-slate-900 transition-all duration-300 ${
-                isScrolled ? 'text-xs' : 'text-sm'
-              }`}
+              className="font-medium text-slate-600 hover:text-slate-900 transition-all duration-300 text-sm"
             >
                 Anmelden
             </a>
             <a
               href="/signup"
-              className={`inline-flex items-center justify-center gap-1.5 font-medium bg-slate-900 text-white rounded-full hover:bg-slate-800 transition-all duration-300 ${
-                isScrolled ? 'text-xs px-3 py-1.5' : 'text-sm px-4 py-2'
-              }`}
+              className="inline-flex items-center justify-center gap-1.5 font-medium bg-slate-900 text-white rounded-full hover:bg-slate-800 transition-all duration-300 text-sm px-4 py-2"
             >
               Registrieren
               <svg 
-                className={`transition-all duration-300 ${isScrolled ? 'w-3 h-3' : 'w-4 h-4'}`}
+                className="w-4 h-4"
                 viewBox="0 0 24 24" 
                 fill="none" 
                 xmlns="http://www.w3.org/2000/svg"
