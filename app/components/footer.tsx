@@ -1,37 +1,8 @@
 'use client';
 
 import { Shield, Twitter, Github, Linkedin, Heart } from 'lucide-react';
-import { IconCircle, FeatureTag } from '@/app/components/premium-components';
-
-const footerLinks = {
-  produkt: {
-    title: 'Produkt',
-    links: [
-      { label: 'Features', href: '#features' },
-      { label: 'Preise', href: '#pricing' },
-      { label: 'FAQ', href: '#faq' },
-      { label: 'Changelog', href: '#' },
-    ],
-  },
-  unternehmen: {
-    title: 'Unternehmen',
-    links: [
-      { label: 'Über uns', href: '#' },
-      { label: 'Blog', href: '#' },
-      { label: 'Karriere', href: '#' },
-      { label: 'Kontakt', href: '#' },
-    ],
-  },
-  rechtliches: {
-    title: 'Rechtliches',
-    links: [
-      { label: 'Impressum', href: '#' },
-      { label: 'Datenschutz', href: '#' },
-      { label: 'AGB', href: '#' },
-      { label: 'Cookie-Richtlinie', href: '#' },
-    ],
-  },
-};
+import { FeatureTag } from '@/app/components/premium-components';
+import { useSiteConfig } from '@/lib/use-site';
 
 const socialLinks = [
   { icon: Twitter, href: '#', label: 'Twitter' },
@@ -40,23 +11,24 @@ const socialLinks = [
 ];
 
 export function Footer() {
+  const { name, content: { footer } } = useSiteConfig();
+
   return (
     <footer className="border-t border-[#e7e5e4] bg-[#fdfcfb]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         {/* Main Footer Content */}
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-6">
           {/* Logo & Description */}
           <div className="lg:col-span-2">
             <a href="#" className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg bg-[#5a7a4a] flex items-center justify-center">
                 <Shield className="w-5 h-5 text-[#fdfcfb]" />
               </div>
-              <span className="text-lg font-semibold text-[#1c1917] tracking-tight">DSGVOClaw</span>
+              <span className="text-lg font-semibold text-[#1c1917] tracking-tight">{name}</span>
             </a>
-            
+
             <p className="max-w-sm text-sm text-[#57534e] leading-relaxed">
-              Der KI-Assistent für deutsche Datenschutzstandards. 
-              Self-hosted oder Managed – Sie haben die volle Kontrolle über Ihre Daten.
+              {footer.description}
             </p>
 
             {/* Social Links */}
@@ -75,13 +47,13 @@ export function Footer() {
           </div>
 
           {/* Link Columns */}
-          
-          {Object.values(footerLinks).map((column) => (
+
+          {footer.columns.map((column) => (
             <div key={column.title}>
               <h3 className="text-sm font-semibold text-[#1c1917] mb-4">
                 {column.title}
               </h3>
-              
+
               <ul className="space-y-3">
                 {column.links.map((link) => (
                   <li key={link.label}>
@@ -104,14 +76,14 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-[#78716c]">
-            © 2026 DSGVOClaw. Alle Rechte vorbehalten.
+            {footer.copyright}
           </p>
-          
+
           <div className="flex items-center gap-4">
-            <FeatureTag variant="sage">Made in Germany</FeatureTag>
+            <FeatureTag variant="sage">{footer.madeIn}</FeatureTag>
             <p className="flex items-center gap-1 text-sm text-[#78716c]">
               <Heart className="h-3 w-3 text-rose-500 fill-rose-500" />
-              Datenschutz
+              {footer.lovesLabel}
             </p>
           </div>
         </div>

@@ -1,76 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Check, Shield, Sparkles, Building2 } from 'lucide-react';
+import { Check, Shield, ArrowRight } from 'lucide-react';
 import { IconCircle, FeatureTag } from '@/app/components/premium-components';
-
-const pricingPlans = [
-  {
-    title: 'Essential',
-    icon: Shield,
-    price: '€149',
-    priceNote: '/Monat',
-    description: 'Perfekt für Solo-Unternehmer und kleine Teams',
-    features: [
-      'Intelligente E-Mail Automation',
-      'Kalender Management & Terminkoordination',
-      'Tägliche Zusammenfassungen',
-      'Automatische DSGVO-Dokumentation',
-      'EU-Cloud Hosting (DE)',
-      'E-Mail Support',
-      '99.9% Uptime Garantie',
-      '1 Nutzer inklusive',
-    ],
-    ctaText: 'Kostenlos testen',
-    variant: 'default' as const,
-    color: 'sage',
-  },
-  {
-    title: 'Professional',
-    icon: Sparkles,
-    price: '€199',
-    priceNote: '/Monat',
-    description: 'Die Wahl für Unternehmen, die Wachstum beschleunigen wollen',
-    features: [
-      'Alle Essential Features',
-      'KI-gestützte Recherche & Analyse',
-      'Automatische Excel-Reports & Präsentationen',
-      'Erweiterte Workflow-Automation',
-      'Unbegrenzte E-Mail-Verarbeitung',
-      'Intelligentes Terminmanagement',
-      'Multi-User Unterstützung (bis 5 Nutzer)',
-      'Prioritäts-Support (< 2h Antwortzeit)',
-      'Voller API-Zugang',
-      'Erweiterte Analytics Dashboard',
-    ],
-    ctaText: 'Kostenlos testen',
-    variant: 'highlighted' as const,
-    badge: 'Meistgewählt',
-    color: 'terracotta',
-  },
-  {
-    title: 'Business',
-    icon: Building2,
-    price: '€399',
-    priceNote: '/Monat',
-    description: 'Für etablierte Unternehmen mit höchsten Ansprüchen',
-    features: [
-      'Alle Professional Features',
-      'Dedizierter Account Manager',
-      'Custom Integrationen',
-      'On-Premise Option',
-      'Team-Schulungen',
-      'Premium SLA',
-      'White-Label Option',
-      'Compliance-Manager',
-    ],
-    ctaText: 'Gespräch vereinbaren',
-    variant: 'default' as const,
-    color: 'cream',
-  },
-];
+import { useSiteConfig } from '@/lib/use-site';
 
 export function Pricing() {
+  const { content: { pricing } } = useSiteConfig();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -106,20 +43,20 @@ export function Pricing() {
           transition={{ duration: 0.6 }}
         >
           <div className="text-xs uppercase tracking-widest text-[#78716c] font-medium mb-4">
-            Preise
+            {pricing.sectionLabel}
           </div>
-          
+
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#1c1917] mb-4">
-            Einfache, transparente<br />
-            <span className="text-[#7c9a8c]">Preise</span>
+            {pricing.headline}<br />
+            <span className="text-[#7c9a8c]">{pricing.headlineAccent}</span>
           </h2>
-          
+
           <p className="text-lg text-[#57534e]">
-            Monatliche Subscription – jederzeit kündbar
+            {pricing.subheadline}
           </p>
-          
+
           <p className="text-sm text-[#a66d4b] mt-4 font-medium">
-            Jahreszahlung: 2 Monate geschenkt (17% Rabatt)
+            {pricing.annualNote}
           </p>
         </motion.div>
 
@@ -131,7 +68,7 @@ export function Pricing() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {pricingPlans.map((plan) => (
+          {pricing.plans.map((plan) => (
             <motion.div
               key={plan.title}
               variants={itemVariants}
@@ -147,26 +84,26 @@ export function Pricing() {
                   <FeatureTag variant="terracotta">{plan.badge}</FeatureTag>
                 </div>
               )}
-              
+
               {/* Header */}
               <div className="mb-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <IconCircle 
-                    icon={plan.icon} 
-                    variant={plan.color as 'sage' | 'terracotta' | 'cream'} 
-                    size="md" 
+                  <IconCircle
+                    icon={plan.icon}
+                    variant={plan.color as 'sage' | 'terracotta' | 'cream'}
+                    size="md"
                   />
                   <h3 className="text-xl font-semibold text-[#1c1917]">{plan.title}</h3>
                 </div>
-                
+
                 <div className="flex items-baseline gap-1">
                   <span className="text-4xl font-bold text-[#1c1917]">{plan.price}</span>
                   {plan.priceNote && <span className="text-[#78716c]">{plan.priceNote}</span>}
                 </div>
-                
+
                 <p className="text-sm text-[#57534e] mt-2">{plan.description}</p>
               </div>
-              
+
               {/* Features */}
               <div className="space-y-3 mb-8">
                 {plan.features.map((feature) => (
@@ -178,17 +115,18 @@ export function Pricing() {
                   </div>
                 ))}
               </div>
-              
+
               {/* CTA */}
               <a
                 href="#signup"
-                className={`block w-full text-center py-3 px-6 rounded-full font-medium transition-all duration-300 ${
+                className={`flex items-center justify-center gap-2 w-full text-center py-3 px-6 rounded-full font-medium transition-all duration-300 ${
                   plan.variant === 'highlighted'
                     ? 'bg-[#1c1917] text-[#fdfcfb] hover:bg-[#292524]'
-                    : 'bg-[#faf7f2] text-[#1c1917] hover:bg-[#f5f0e8]'
+                    : 'bg-[#1c1917] text-[#fdfcfb] hover:bg-[#292524] border border-[#1c1917]'
                 }`}
               >
                 {plan.ctaText}
+                <ArrowRight className="w-4 h-4" />
               </a>
             </motion.div>
           ))}
@@ -204,7 +142,7 @@ export function Pricing() {
         >
           <Shield className="h-5 w-5 text-[#7c9a8c]" />
           <p className="text-sm text-[#57534e]">
-            14 Tage Geld-zurück-Garantie – risikolos testen
+            {pricing.guaranteeText}
           </p>
         </motion.div>
       </div>

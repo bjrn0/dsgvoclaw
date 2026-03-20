@@ -1,0 +1,61 @@
+{
+  "$schema": "openclaw-config-v1",
+  "gateway": {
+    "bind": "loopback",
+    "port": 18789,
+    "auth": {
+      "token": "${MASTERCRAB_GATEWAY_TOKEN}"
+    }
+  },
+  "agents": {
+    "defaults": {
+      "workspace": "~/.mastercrab/workspace",
+      "confirm_actions": true,
+      "sandbox": true,
+      "model": "nvidia/nemotron-3-super-120b"
+    }
+  },
+  "session": {
+    "dmScope": "per-channel-peer",
+    "retention_days": 30
+  },
+  "roles": {
+    "admin": { "permissions": ["*"] },
+    "analyst": { "permissions": ["read", "export", "search"] },
+    "user": { "permissions": ["chat", "read"] },
+    "audit": { "permissions": ["audit.read", "audit.export"] }
+  },
+  "channels": {
+    "whatsapp": { "enabled": false, "dm": { "mode": "allowlist", "allowFrom": [] } },
+    "telegram": { "enabled": false, "dm": { "mode": "allowlist", "allowFrom": [] } },
+    "slack": { "enabled": false, "dm": { "mode": "allowlist", "allowFrom": [] } },
+    "discord": { "enabled": false, "dm": { "mode": "allowlist", "allowFrom": [] } },
+    "teams": { "enabled": false, "dm": { "mode": "allowlist", "allowFrom": [] } },
+    "webchat": { "enabled": true, "dm": { "mode": "allowlist", "allowFrom": ["admin"] } }
+  },
+  "audit": {
+    "enabled": true,
+    "level": "detailed",
+    "retention_days": 90,
+    "format": "jsonl"
+  },
+  "compliance": {
+    "gdpr": {
+      "enabled": true,
+      "data_residency": "EU",
+      "auto_deletion_days": 30,
+      "right_to_erasure": true,
+      "right_to_export": true
+    }
+  },
+  "tools": {
+    "browser": { "enabled": false },
+    "filesystem": { "allowed_paths": ["~/.mastercrab/workspace"] },
+    "network": { "egress": "deny-all" }
+  },
+  "sandbox": {
+    "cpu_limit": "2",
+    "memory_limit": "2048m",
+    "timeout": 300
+  }
+}

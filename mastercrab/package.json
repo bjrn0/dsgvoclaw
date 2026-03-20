@@ -1,0 +1,18 @@
+{
+  "name": "mastercrab",
+  "version": "0.1.0",
+  "description": "MasterCrab – GDPR-compliant AI agent runtime powered by NemoClaw & OpenClaw",
+  "license": "Apache-2.0",
+  "bin": {
+    "mastercrab": "./bin/mastercrab.sh"
+  },
+  "scripts": {
+    "start": "./bin/mastercrab.sh start",
+    "stop": "./bin/mastercrab.sh stop",
+    "status": "./bin/mastercrab.sh status",
+    "admin": "./bin/mastercrab.sh admin"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

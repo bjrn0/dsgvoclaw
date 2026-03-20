@@ -2,24 +2,14 @@
 
 import { motion } from 'framer-motion';
 import { Shield, Clock, Users, ArrowRight, Mail } from 'lucide-react';
-import { IconCircle, FeatureTag, ChecklistItem } from '@/app/components/premium-components';
+import { ChecklistItem } from '@/app/components/premium-components';
+import { useSiteConfig } from '@/lib/use-site';
 
-const trustBadges = [
-  {
-    icon: Shield,
-    text: 'DSGVO-konform',
-  },
-  {
-    icon: Clock,
-    text: 'Setup in 10 Min.',
-  },
-  {
-    icon: Users,
-    text: '200+ Unternehmen',
-  },
-];
+const trustBadgeIcons = [Shield, Clock, Users];
 
 export function CTA() {
+  const { content: { cta } } = useSiteConfig();
+
   return (
     <section className="relative py-16 md:py-20 bg-[#f4f7f2] overflow-hidden">
       {/* Background Pattern */}
@@ -42,24 +32,23 @@ export function CTA() {
           <div className="mb-6">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-[#5a7a4a] text-sm font-medium border border-[#d4ddd0]">
               <Shield className="w-4 h-4" />
-              Jetzt beitreten
+              {cta.badge}
             </span>
           </div>
 
           {/* Main Heading */}
-          
+
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#1c1917] mb-6">
-            Starten Sie 2026 mit einem<br />
-            <span className="text-[#5a7a4a]">KI-Vorsprung</span>
+            {cta.headline}<br />
+            <span className="text-[#5a7a4a]">{cta.headlineAccent}</span>
           </h2>
 
           <p className="text-lg text-[#57534e] mb-10 max-w-xl mx-auto">
-            Testen Sie 14 Tage kostenlos – voller Funktionsumfang, keine Kreditkarte nötig. 
-            Entscheiden Sie dann, ob der KI-Mitarbeiter Ihr Team verstärkt.
+            {cta.subheadline}
           </p>
 
           {/* Email Form */}
-          
+
           <motion.div
             className="mb-8"
             initial={{ opacity: 0, y: 20 }}
@@ -72,23 +61,23 @@ export function CTA() {
                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#78716c]" />
                 <input
                   type="email"
-                  placeholder="Ihre E-Mail-Adresse"
+                  placeholder={cta.emailPlaceholder}
                   className="w-full pl-12 pr-4 py-4 bg-white border border-[#d4ddd0] rounded-full text-[#1c1917] placeholder:text-[#78716c] focus:outline-none focus:ring-2 focus:ring-[#7c9a6a] focus:border-transparent"
                 />
               </div>
-              
+
               <button
                 type="submit"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#1c1917] text-[#fdfcfb] rounded-full font-medium hover:bg-[#292524] transition-all duration-300 whitespace-nowrap"
               >
-                Beitreten
+                {cta.submitText}
                 <ArrowRight className="w-4 h-4" />
               </button>
             </form>
           </motion.div>
 
           {/* Benefits */}
-          
+
           <motion.div
             className="flex flex-wrap items-center justify-center gap-4 mb-10"
             initial={{ opacity: 0 }}
@@ -96,13 +85,13 @@ export function CTA() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <ChecklistItem checked className="text-[#57534e]">Keine Kreditkarte nötig</ChecklistItem>
-            <ChecklistItem checked className="text-[#57534e]">Jederzeit kündbar</ChecklistItem>
-            <ChecklistItem checked className="text-[#57534e]">14 Tage Geld-zurück</ChecklistItem>
+            {cta.benefits.map((benefit) => (
+              <ChecklistItem key={benefit} checked className="text-[#57534e]">{benefit}</ChecklistItem>
+            ))}
           </motion.div>
 
           {/* Trust Badges */}
-          
+
           <motion.div
             className="flex flex-wrap items-center justify-center gap-6 sm:gap-8"
             initial={{ opacity: 0 }}
@@ -110,15 +99,18 @@ export function CTA() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            {trustBadges.map((badge) => (
-              <div
-                key={badge.text}
-                className="flex items-center gap-2 text-sm text-[#57534e]"
-              >
-                <badge.icon className="h-4 w-4 text-[#5a7a4a]" />
-                <span>{badge.text}</span>
-              </div>
-            ))}
+            {cta.trustBadges.map((badge, idx) => {
+              const Icon = trustBadgeIcons[idx];
+              return (
+                <div
+                  key={badge}
+                  className="flex items-center gap-2 text-sm text-[#57534e]"
+                >
+                  <Icon className="h-4 w-4 text-[#5a7a4a]" />
+                  <span>{badge}</span>
+                </div>
+              );
+            })}
           </motion.div>
 
           {/* Professional Urgency Note */}
@@ -129,8 +121,7 @@ export function CTA() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            2026 wird das Jahr, in dem KI zum Standard wird. 
-            Die Frage ist nicht mehr „ob", sondern „wann".
+            {cta.urgencyText}
           </motion.p>
         </motion.div>
       </div>

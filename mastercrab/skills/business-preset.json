@@ -1,0 +1,57 @@
+{
+  "name": "business-de",
+  "description": "Curated skills for German business operations",
+  "version": "1.0.0",
+  "skills": [
+    {
+      "id": "himalaya",
+      "category": "communication",
+      "description": "E-Mail management via IMAP/SMTP"
+    },
+    {
+      "id": "slack",
+      "category": "communication",
+      "description": "Slack workspace integration"
+    },
+    {
+      "id": "discord",
+      "category": "communication",
+      "description": "Discord server management"
+    },
+    {
+      "id": "summarize",
+      "category": "research",
+      "description": "URL, PDF, and video summarization"
+    },
+    {
+      "id": "coding-agent",
+      "category": "development",
+      "description": "Background coding tasks"
+    },
+    {
+      "id": "github",
+      "category": "development",
+      "description": "GitHub PRs, issues, CI management"
+    },
+    {
+      "id": "notion",
+      "category": "productivity",
+      "description": "Notion workspace management"
+    },
+    {
+      "id": "trello",
+      "category": "productivity",
+      "description": "Trello board management"
+    },
+    {
+      "id": "session-logs",
+      "category": "audit",
+      "description": "Search past conversation history"
+    },
+    {
+      "id": "healthcheck",
+      "category": "infrastructure",
+      "description": "System health monitoring"
+    }
+  ]
+}

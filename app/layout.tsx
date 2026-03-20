@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter_Tight } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { Navbar } from "./components/navbar";
 import { Footer } from "./components/footer";
+import { getSiteConfig } from "@/lib/sites";
 
 const interTight = Inter_Tight({
   variable: "--font-inter-tight",
@@ -10,31 +12,40 @@ const interTight = Inter_Tight({
   weight: ["400", "500", "600", "700"],
 });
 
-export const metadata: Metadata = {
-  title: "DSGVOClaw - Ihr KI-Mitarbeiter, 100% DSGVO-konform",
-  description: "Ersetzen Sie 2–4 administrative FTEs mit einem KI-Mitarbeiter. E-Mails, Kalender, Reports, Recherche – vollautomatisiert. EU-Server, kein US-Risiko, keine Bußgelder.",
-  keywords: ["KI-Mitarbeiter", "DSGVO", "Automatisierung", "E-Mail Automation", "Datenschutz", "Deutschland", "KI-Assistent"],
-  authors: [{ name: "DSGVOClaw" }],
-  openGraph: {
-    title: "DSGVOClaw - Ihr KI-Mitarbeiter, 100% DSGVO-konform",
-    description: "Ersetzen Sie 2–4 administrative FTEs mit einem KI-Mitarbeiter. EU-Server, kein US-Risiko.",
-    type: "website",
-    locale: "de_DE",
-  },
-};
+const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
+export function generateMetadata(): Metadata {
+  const site = getSiteConfig();
+
+  return {
+    title: site.metadata.title,
+    description: site.metadata.description,
+    keywords: site.metadata.keywords,
+    authors: [{ name: site.name }],
+    openGraph: {
+      title: site.metadata.ogTitle,
+      description: site.metadata.ogDescription,
+      type: "website",
+      locale: site.locale,
+    },
+  };
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const site = getSiteConfig();
+
   return (
-    <html lang="de">
+    <html lang={site.lang}>
       <body className={`${interTight.variable} font-sans antialiased`}>
         <Navbar />
         {children}
         <Footer />
       </body>
+      {gaId && <GoogleAnalytics gaId={gaId} />}
     </html>
   );
 }

@@ -39,3 +39,27 @@ logs/
 *.tsbuildinfo
 .worktrees/
 next-env.d.ts
+
+# ==============================================================================
+# OpenClaw Gateway — Security-sensitive exclusions
+# ==============================================================================
+
+# OpenClaw node_modules (large, not needed in git)
+openclaw-gateway/node_modules/
+openclaw-gateway/.git/
+
+# Sensitive data — NEVER commit these
+openclaw-gateway/data/
+openclaw-gateway/.env
+
+# Session logs (contain personal data — GDPR)
+openclaw-gateway/sessions/
+openclaw-gateway/audit/
+
+# Credentials and secrets
+openclaw-gateway/credentials/
+openclaw-gateway/*.key
+openclaw-gateway/*.pem
+
+# GDPR export outputs
+gdpr-export-*/

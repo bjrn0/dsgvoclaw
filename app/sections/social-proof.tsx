@@ -2,36 +2,11 @@
 
 import { motion } from 'framer-motion';
 import { Quote, Star } from 'lucide-react';
-import { IconCircle, FeatureTag } from '@/app/components/premium-components';
-
-const testimonials = [
-  {
-    quote: 'DSGVOClaw hat unsere Datenschutzprozesse revolutioniert. Was früher Tage dauerte, erledigen wir jetzt in Minuten.',
-    author: 'Maria Schmidt',
-    role: 'Datenschutzbeauftragte',
-    company: 'TechCorp GmbH',
-    rating: 5,
-    variant: 'sage' as const,
-  },
-  {
-    quote: 'Endlich ein Tool, das versteht, was deutsche Unternehmen brauchen. Die Self-Hosted Option war ein Game-Changer für uns.',
-    author: 'Thomas Weber',
-    role: 'CTO',
-    company: 'DataSecure AG',
-    rating: 5,
-    variant: 'terracotta' as const,
-  },
-  {
-    quote: 'Unsere Kunden vertrauen uns jetzt noch mehr, seitdem wir DSGVOClaw für unsere Compliance nutzen.',
-    author: 'Anna Müller',
-    role: 'Geschäftsführerin',
-    company: 'PrivacyFirst Consulting',
-    rating: 5,
-    variant: 'cream' as const,
-  },
-];
+import { useSiteConfig } from '@/lib/use-site';
 
 export function SocialProof() {
+  const { content: { socialProof } } = useSiteConfig();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -67,16 +42,16 @@ export function SocialProof() {
           transition={{ duration: 0.6 }}
         >
           <div className="text-xs uppercase tracking-widest text-[#78716c] font-medium mb-4">
-            Testimonials
+            {socialProof.sectionLabel}
           </div>
-          
+
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#1c1917] mb-4">
-            Was unsere<br />
-            <span className="text-[#7c9a8c]">Kunden sagen</span>
+            {socialProof.headline}<br />
+            <span className="text-[#7c9a8c]">{socialProof.headlineAccent}</span>
           </h2>
-          
+
           <p className="text-lg text-[#57534e]">
-            Vertrauen von über 200 Unternehmen in Deutschland
+            {socialProof.subheadline}
           </p>
         </motion.div>
 
@@ -88,7 +63,7 @@ export function SocialProof() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {testimonials.map((testimonial) => (
+          {socialProof.testimonials.map((testimonial) => (
             <motion.div
               key={testimonial.author}
               variants={itemVariants}
@@ -129,7 +104,7 @@ export function SocialProof() {
                 }`}>
                   {testimonial.author.split(' ').map(n => n[0]).join('')}
                 </div>
-                
+
                 <div>
                   <p className="font-semibold text-[#1c1917]">
                     {testimonial.author}

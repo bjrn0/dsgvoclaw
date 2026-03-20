@@ -13,7 +13,6 @@ export default function Home() {
       <Hero />
       <div className="w-full h-px bg-[#e7e5e4]" />
       <Problem />
-      <div className="w-full h-px bg-[#e7e5e4]" />
       <FeaturesBento />
       <div className="w-full h-px bg-[#e7e5e4]" />
       <HowItWorks />

@@ -1,0 +1,45 @@
+# MasterCrab Network Policy
+# NemoClaw sandbox network rules (GDPR-compliant defaults)
+
+version: "1.0"
+description: "GDPR-hardened network policy for MasterCrab sandbox"
+
+defaults:
+  egress: deny
+  ingress: deny
+
+rules:
+  # NVIDIA Nemotron inference API
+  - name: nvidia-inference
+    direction: egress
+    host: "api.nvidia.com"
+    port: 443
+    protocol: https
+    action: allow
+
+  # Package managers (for skill installation)
+  - name: npm-registry
+    direction: egress
+    host: "registry.npmjs.org"
+    port: 443
+    protocol: https
+    action: allow
+
+  # ClawHub marketplace
+  - name: clawhub
+    direction: egress
+    host: "clawhub.ai"
+    port: 443
+    protocol: https
+    action: allow
+
+  # DNS resolution
+  - name: dns
+    direction: egress
+    host: "*"
+    port: 53
+    protocol: udp
+    action: allow
+
+  # All other outbound traffic is blocked
+  # Unknown hosts will be flagged in the admin console for approval

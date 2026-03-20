@@ -2,19 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, Shield } from "lucide-react";
-
-// Navigation links array - all sections
-const navLinks = [
-  { href: "#problem", label: "Problem" },
-  { href: "#features", label: "Features" },
-  { href: "#how-it-works", label: "So funktioniert's" },
-  { href: "#pricing", label: "Preise" },
-  { href: "#social-proof", label: "Kunden" },
-  { href: "#faq", label: "FAQ" },
-];
+import { Menu, X, Shield, LogIn } from "lucide-react";
+import { useSiteConfig } from "@/lib/use-site";
 
 export function Navbar() {
+  const { name, content: { nav } } = useSiteConfig();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -37,8 +29,8 @@ export function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed top-4 left-4 right-4 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'max-w-5xl mx-auto' 
+        isScrolled
+          ? 'max-w-5xl mx-auto'
           : 'max-w-7xl mx-auto'
       }`}
     >
@@ -47,26 +39,26 @@ export function Navbar() {
       }`}>
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a 
-            href="/" 
+          <a
+            href="/"
             className="flex items-center gap-2"
-            title="DSGVOClaw homepage"
+            title={`${name} homepage`}
           >
             <div className="w-8 h-8 rounded-lg bg-[#5a7a4a] flex items-center justify-center">
               <Shield className="w-5 h-5 text-white" />
             </div>
-            <span className="font-semibold text-slate-900 tracking-tight text-lg">DSGVOClaw</span>
+            <span className="font-semibold text-slate-900 tracking-tight text-lg">{name}</span>
           </a>
 
           {/* Desktop Navigation */}
           <div className={`hidden lg:flex items-center transition-all duration-300 ${
             isScrolled ? 'gap-4' : 'gap-6'
           }`}>
-            {navLinks.map((link) => (
+            {nav.links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="font-medium text-slate-600 hover:text-slate-900 transition-all duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[#5a7a4a] after:transition-all after:duration-200 hover:after:w-full text-sm"
+                className="font-medium text-slate-600 hover:text-[#5a7a4a] transition-colors duration-200 text-sm"
               >
                 {link.label}
               </a>
@@ -79,26 +71,27 @@ export function Navbar() {
           }`}>
             <a
               href="/signin"
-              className="font-medium text-slate-600 hover:text-slate-900 transition-all duration-300 text-sm"
+              className="inline-flex items-center gap-1.5 font-medium text-slate-600 hover:text-slate-900 transition-all duration-300 text-sm"
             >
-                Anmelden
+                <LogIn className="w-3.5 h-3.5" />
+                {nav.signIn}
             </a>
             <a
               href="/signup"
               className="inline-flex items-center justify-center gap-1.5 font-medium bg-slate-900 text-white rounded-full hover:bg-slate-800 transition-all duration-300 text-sm px-4 py-2"
             >
-              Registrieren
-              <svg 
+              {nav.signUp}
+              <svg
                 className="w-4 h-4"
-                viewBox="0 0 24 24" 
-                fill="none" 
+                viewBox="0 0 24 24"
+                fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path 
-                  d="M7 17L17 7M17 7H7M17 7V17" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
+                <path
+                  d="M7 17L17 7M17 7H7M17 7V17"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
                   strokeLinejoin="round"
                 />
               </svg>
@@ -123,7 +116,7 @@ export function Navbar() {
         {/* Mobile Navigation */}
         <motion.div
           initial={false}
-          animate={{ 
+          animate={{
             height: isMobileMenuOpen ? "auto" : 0,
             opacity: isMobileMenuOpen ? 1 : 0
           }}
@@ -131,7 +124,7 @@ export function Navbar() {
           className="lg:hidden overflow-hidden"
         >
           <div className="pt-4 pb-2 space-y-2">
-            {navLinks.map((link) => (
+            {nav.links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -146,13 +139,13 @@ export function Navbar() {
                 href="/signin"
                 className="block w-full text-center px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
               >
-                Anmelden
+                {nav.signIn}
               </a>
               <a
                 href="/signup"
                 className="block w-full text-center px-4 py-2 text-sm font-medium bg-slate-900 text-white rounded-full hover:bg-slate-800 transition-colors"
               >
-                Registrieren
+                {nav.signUp}
               </a>
             </div>
           </div>
